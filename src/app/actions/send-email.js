@@ -20,11 +20,11 @@ export async function sendEmail({ email, orderId, customerEmail = false, OrderDa
       : getVendorTemplate(orderId, OrderData);
 
     const subject = customerEmail
-      ? "Order Confirmation - zalvox"
-      : "New Order Received - zalvox";
+      ? "Order Confirmation - Revodials"
+      : "New Order Received - Revodials";
 
     const mailOptions = {
-      from: `"zalvox" <${process.env.EMAIL_USER}>`,
+      from: `"Revodials" <${process.env.EMAIL_USER}>`,
       to: email,
       replyTo: email,
       subject,
@@ -51,7 +51,7 @@ function getCustomerTemplate(orderId) {
       <p style="font-size: 18px;"><strong>Order tracking ID:</strong> <span style="color: #007BFF;">${orderId}</span></p>
       <p style="font-size: 16px;">Your order will be shipped within <strong>2 to 3 working days</strong>.</p>
       <p style="margin-top: 30px; font-size: 14px; color: #888;">If you have any questions, feel free to reply to this email.</p>
-      <p style="font-size: 14px; color: #888;">– The zalvox Team</p>
+      <p style="font-size: 14px; color: #888;">– The Revodials Team</p>
     </div>
   </div>
   `;
@@ -83,7 +83,7 @@ function getVendorTemplate(orderId, OrderData) {
       <!-- Header -->
       <div style="background:linear-gradient(135deg,#ff9800,#ff5722);padding:20px;color:white;">
         <h1 style="margin:0;font-size:22px;line-height:1.3;">🎉 New Order Received</h1>
-        <p style="margin:6px 0 0;opacity:0.9;">Zalvox Web Store</p>
+        <p style="margin:6px 0 0;opacity:0.9;">Revodials Web Store</p>
       </div>
 
       <!-- Body -->
@@ -138,7 +138,7 @@ function getVendorTemplate(orderId, OrderData) {
         <!-- Footer -->
         <p style="margin-top:30px;font-size:12px;color:#999;text-align:center;">
           Please process this order as soon as possible.<br/>
-          — <strong>Zalvox Order System</strong>
+          — <strong>Revodials Order System</strong>
         </p>
 
       </div>
@@ -164,7 +164,7 @@ export async function contactUsEmailSender(email, name, message) {
     });
 
     await transporter.sendMail({
-      from: `"zalvox" <${process.env.EMAIL_USER}>`,
+      from: `"Revodials" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
       subject: "Contact page query",
@@ -176,7 +176,7 @@ export async function contactUsEmailSender(email, name, message) {
             ${message}
             </p>
             <p style="margin-top: 30px; font-size: 14px; color: #888;">
-              – zalvox Order System
+              – Revodials Order System
             </p>
           </div>
         </div>`,
@@ -205,15 +205,15 @@ export async function statusEmail(data) {
     const htmlTemplate = getStatusTemplate({ status, orderId });
 
     const subjectMap = {
-      processing: "Order Processing - zalvox",
-      shipped: "Your Order Has Been Shipped - zalvox",
-      cancelled: "Order Cancelled - zalvox",
+      processing: "Order Processing - Revodials",
+      shipped: "Your Order Has Been Shipped - Revodials",
+      cancelled: "Order Cancelled - Revodials",
     };
 
-    const subject = subjectMap[status] || "Order Update - zalvox";
+    const subject = subjectMap[status] || "Order Update - Revodials";
 
     await transporter.sendMail({
-      from: `"zalvox" <${process.env.EMAIL_USER}>`,
+      from: `"Revodials" <${process.env.EMAIL_USER}>`,
       to: email,
       replyTo: process.env.EMAIL_USER,
       subject,
@@ -253,7 +253,7 @@ function getStatusTemplate({ status, orderId }) {
       : ""
     }
         <p style="margin-top: 30px; font-size: 14px; color: #888;">If you have any questions, feel free to reply to this email.</p>
-        <p style="font-size: 14px; color: #888;">– The zalvox Team</p>
+        <p style="font-size: 14px; color: #888;">– The Revodials Team</p>
       </div>
     </div>
   `;

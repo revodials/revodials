@@ -8,7 +8,7 @@ function Banner() {
       {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/zalvox2.jpg"
+          src="/Revodials2.jpg"
           alt="Premium Watches"
           fill
           priority
@@ -34,7 +34,7 @@ function Banner() {
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4 leading-tight drop-shadow-2xl">
           UPGRADE YOUR STYLE <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">
-            WITH ZALVOX WATCHES
+            WITH REVODIALS WATCHES
           </span>
         </h1>
 

@@ -13,20 +13,20 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  applicationName: "Zalvox",
+  applicationName: "Revodials",
   title: {
-    default: "Zalvox - Your Ultimate Shopping Destination",
-    template: "Zalvox - Your Ultimate Shopping Destination",
+    default: "Revodials - Your Ultimate Shopping Destination",
+    template: "Revodials - Your Ultimate Shopping Destination",
   },
-  description: "Zalvox - Your Ultimate Shopping Destination",
+  description: "Revodials - Your Ultimate Shopping Destination",
   icons: {
-    icon: "/zalvox-siteicon.png", // Path to your favicon in /public
+    icon: "/Revodials-siteicon.png", // Path to your favicon in /public
   },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Zalvox - Your Ultimate Shopping Destination",
+    title: "Revodials - Your Ultimate Shopping Destination",
     // startUpImage: [],
   },
   formatDetection: {
@@ -34,20 +34,20 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Zalvox",
+    siteName: "Revodials",
     title: {
-      default: "Zalvox - Your Ultimate Shopping Destination",
-      template: "Zalvox - Your Ultimate Shopping Destination",
+      default: "Revodials - Your Ultimate Shopping Destination",
+      template: "Revodials - Your Ultimate Shopping Destination",
     },
-    description: "Zalvox - Your Ultimate Shopping Destination",
+    description: "Revodials - Your Ultimate Shopping Destination",
   },
   twitter: {
     card: "summary",
     title: {
-      default: "Zalvox - Your Ultimate Shopping Destination",
-      template: "Zalvox - Your Ultimate Shopping Destination",
+      default: "Revodials - Your Ultimate Shopping Destination",
+      template: "Revodials - Your Ultimate Shopping Destination",
     },
-    description: "Zalvox - Your Ultimate Shopping Destination",
+    description: "Revodials - Your Ultimate Shopping Destination",
   },
 };
 

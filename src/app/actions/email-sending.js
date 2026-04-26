@@ -14,10 +14,10 @@ export async function sendDirectEmail({ name, email, message }) {
     });
 
     await transporter.sendMail({
-      from: `"Zalvox" <${process.env.EMAIL_USER}>`, // ✅ Use your own Gmail here
+      from: `"Revodials" <${process.env.EMAIL_USER}>`, // ✅ Use your own Gmail here
       to: email,
       replyTo: email, // ✅ Allows replies to user
-      subject: `message from Zalvox`,
+      subject: `message from Revodials`,
       html: `
      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;">
     <h2 style="color: #0052cc;">Dear ${name || "Customer"},</h2>    
@@ -28,8 +28,8 @@ export async function sendDirectEmail({ name, email, message }) {
     <p>If you have any further questions, feel free to reply to this email.</p>
 
     <p>Best regards,<br>
-    <strong>Zalvox Support Team</strong><br>
-    Zalvox</p>
+    <strong>Revodials Support Team</strong><br>
+    Revodials</p>
   </div>
   `,
     });

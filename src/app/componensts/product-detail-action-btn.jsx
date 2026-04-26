@@ -20,7 +20,7 @@ function ProductDetailActions({ product }) {
     const router = useRouter();
 
     const sendToWhatsApp = (productName) => {
-        const phoneNumber = "923196582699";
+        const phoneNumber = "923359219333";
         const message = encodeURIComponent(
             `Hello, I want to order "${productName}"`
         );

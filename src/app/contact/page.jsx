@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -44,7 +44,7 @@ export default function Page() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h1 className="text-4xl font-bold text-gray-900">
-              Contact Zalvox Watches
+              Contact Revodials Watches
             </h1>
             <p className="mt-4 text-gray-600 text-lg">
               We're here to help! Reach out with your questions, comments, or
@@ -59,9 +59,9 @@ export default function Page() {
                   📞 Get In Touch
                 </h2>
                 <p className="text-gray-600 text-sm">
-                  Email: info.zalvox@gmail.com
+                  Email: info.Revodials@gmail.com
                 </p>
-             
+
                 <p className="text-gray-600 text-sm mt-2">
                   Phone: +92-282183869
                 </p>
@@ -81,23 +81,23 @@ export default function Page() {
                 <p className="text-gray-600 text-sm">
                   Instagram:{" "}
                   <a
-                    href="https://www.instagram.com/zalvoxwatches?igsh=MTEyM3VqY3V6dHNiNQ=="
+                    href="https://www.instagram.com/Revodialswatches?igsh=MTEyM3VqY3V6dHNiNQ=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    @ZalvoxWatches
+                    @RevodialsWatches
                   </a>
                 </p>
                 <p className="text-gray-600 text-sm">
                   Facebook:{" "}
                   <a
-                    href="https://www.facebook.com/people/Zalvox/61576137486304/#"
+                    href="https://www.facebook.com/people/Revodials/61576137486304/#"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
                   >
-                    @Zalvox Watches
+                    @Revodials Watches
                   </a>
                 </p>
               </div>

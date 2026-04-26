@@ -1,17 +1,16 @@
 {
-  "id":"2",
-  "name": "Zalvox",
-  "short_name": "Zalvox watches",
+  "id": "2",
+  "name": "Revodials",
+  "short_name": "Revodials watches",
   "icons": [
     {
-      "src": "/zalvox-siteicon.png",
+      "src": "/Revodials-siteicon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
-
     {
-      "src": "/zalvox-siteicon.png",
+      "src": "/Revodials-siteicon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
