@@ -12,7 +12,7 @@ export default function Page() {
 
         <div className="space-y-6 text-gray-700 leading-relaxed">
           <p>
-            At <span className="font-semibold">www.zalvox.store</span>, we value
+            At <span className="font-semibold">www.Revodials.store</span>, we value
             your trust and are committed to protecting your privacy. This policy
             explains how we collect, use, and safeguard your personal
             information when you shop with us.
@@ -82,8 +82,8 @@ export default function Page() {
               data is handled, please contact us at:
             </p>
             <p className="mt-2 font-medium">
-              Email: info.zalvox@gmail.com <br />
-              Website: www.zalvox.store
+              Email: info.Revodials@gmail.com <br />
+              Website: www.Revodials.store
             </p>
           </div>
 

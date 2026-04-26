@@ -24,12 +24,12 @@ function Whatsappbutton() {
   }, []);
 
   const sendToWhatsApp = () => {
-    const phoneNumber = "923196582699";
+    const phoneNumber = "923359219333";
     const message = encodeURIComponent("Hello, I want to take information about your products.");
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
 
     if (window.innerWidth < 768) {
-      window.location.href = url; 
+      window.location.href = url;
     } else {
       window.open(url, "_blank");
     }
@@ -38,7 +38,7 @@ function Whatsappbutton() {
     <div className="fixed bottom-8 z-[100] right-6 lg:right-10 transition transform active:scale-95 group" onClick={sendToWhatsApp}>
       {/* Pulsing ring background */}
       <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-40 animate-ping group-hover:animate-none"></div>
-      
+
       <div className="relative bg-white p-2 z-10 rounded-full shadow-2xl border border-gray-100 cursor-pointer flex items-center justify-center hover:scale-110 transition-transform duration-300">
         <IoLogoWhatsapp color="#25D366" size={55} />
         {count && (

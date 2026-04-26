@@ -184,7 +184,7 @@ export function OrderReceiptPDF({ order }) {
           <View style={styles.header}>
             <Image
               style={styles.logo}
-              src="/black-logo.png" 
+              src="/black-logo.png"
             />
             <Text style={styles.title}>ORDER RECEIPT</Text>
             <Text style={styles.subtitle}>Thank you for your purchase</Text>
@@ -288,10 +288,10 @@ export function OrderReceiptPDF({ order }) {
           <View style={styles.footer}>
             <Text>
               If you have any questions about this receipt, please contact our
-              customer support info.zalvox@gmail.com.
+              customer support info.Revodials@gmail.com.
             </Text>
             <Text style={{ marginTop: 5 }}>
-              © {new Date().getFullYear()} Zalvox. All rights
+              © {new Date().getFullYear()} Revodials. All rights
               reserved.
             </Text>
           </View>

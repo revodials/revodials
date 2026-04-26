@@ -41,7 +41,7 @@ export default function FAQ() {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-gray-600">
-              Everything you need to know about shopping with Zalvox.
+              Everything you need to know about shopping with Revodials.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export default function FAQ() {
           <div className="mt-12 text-center p-8 bg-gray-50 rounded-2xl border border-gray-200">
             <p className="text-lg text-gray-700 font-medium mb-4">Still have questions?</p>
             <a
-              href="https://wa.me/923196582699"
+              href="https://wa.me/923359219333"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center px-6 sm:px-6 py-3 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 transition-colors duration-300 shadow-lg shadow-green-500/30"

@@ -45,7 +45,7 @@ function SingleProduct({ item, onClick }) {
         <h3 className="text-sm font-medium text-gray-900 leading-tight">
           {item.name.length > 22 ? item.name.slice(0, 22) + "..." : item.name}
         </h3>
-        <p className="text-xs text-black font-semibold">Zalvox</p>
+        <p className="text-xs text-black font-semibold">Revodials</p>
 
         {/* Rating */}
         <div className="flex justify-center gap-0.5 text-yellow-400 mt-1">

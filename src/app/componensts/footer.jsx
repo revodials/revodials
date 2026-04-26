@@ -14,10 +14,10 @@ const Footer = () => {
           <div className="space-y-4 text-center sm:text-left">
             <div className="flex justify-center sm:justify-start items-center">
 
-              <span className="text-xl font-bold">Zalvox</span>
+              <span className="text-xl font-bold">Revodials</span>
             </div>
             <p className="text-gray-400 text-sm">
-              Since 2007, Zalvox has offered elegant, high-quality watches
+              Since 2007, Revodials has offered elegant, high-quality watches
               without the luxury markup.
             </p>
             <div className="mt-2">
@@ -91,7 +91,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm text-center">
-            © 2025 Zalvox. All Rights Reserved.
+            © 2025 Revodials. All Rights Reserved.
           </p>
           <div className="flex space-x-6 text-sm text-gray-500">
             <Link href="#" className="hover:text-white">

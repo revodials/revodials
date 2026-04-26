@@ -284,7 +284,7 @@ export const orderCheckout = async (req) => {
       });
     }
     await sendEmail({
-      email: "info.zalvox@gmail.com",
+      email: "info.Revodials@gmail.com",
       orderId: order.orderId,
       OrderData: OrderData,
     });
