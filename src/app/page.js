@@ -6,12 +6,9 @@ import Whatsappbutton from "./componensts/whatsappbutton";
 import Footer from "./componensts/footer";
 import ProductSection from "./componensts/product-section";
 import HomeMarquees from "./componensts/home-marquees";
-import Marquee from "./componensts/marquee";
-import CarouselMarquee from "./componensts/carousel-marquee";
 import CategoryBox from "./componensts/category-box";
 import { Skiper50 } from "./componensts/reviews";
 import FAQ from "./componensts/faq";
-import ExitIntentPopup from "./componensts/exit-intent-popup";
 import { fetchCatagory, fetchProductsbyCategories } from "./actions/products";
 
 export const revalidate = 21600;

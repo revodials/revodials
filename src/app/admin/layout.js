@@ -19,7 +19,7 @@ export default async function Layout({ children }) {
           <SidebarTrigger />
           <div className="flex justify-center w-full">
             <Image
-              src="/black-logo.png"
+              src="/logo-revo.png"
               alt="Logo"
               width={150}
               height={150}

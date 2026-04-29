@@ -55,11 +55,24 @@ function Navbar() {
 
   return (
     <div className="sticky top-0 z-[100]">
-      {/* Announcement Bar */}
-      <div className="bg-red-600 text-white text-xs md:text-sm font-bold text-center py-2 px-4 uppercase tracking-wider flex items-center justify-center gap-2 shadow-md">
-        <Flame size={16} className="text-yellow-300 animate-pulse hidden md:block" />
-        <span>🔥 FLASH SALE: 50% OFF + FREE DELIVERY & CASH ON DELIVERY IN PAKISTAN! 🔥</span>
-        <Flame size={16} className="text-yellow-300 animate-pulse hidden md:block" />
+      {/* Premium Announcement Bar */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-[10px] sm:text-xs md:text-sm font-bold text-center py-2.5 px-4 tracking-[0.15em] sm:tracking-[0.2em] flex items-center justify-center gap-3 border-b border-red-800 shadow-md z-50">
+
+        {/* Subtle shimmer */}
+        <div className="absolute inset-0 bg-white/10 animate-pulse pointer-events-none"></div>
+
+        <Flame size={16} className="text-yellow-400 animate-bounce hidden sm:block relative z-10" />
+
+        <div className="relative z-10 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 uppercase drop-shadow-sm">
+          <span className="font-black text-yellow-400 drop-shadow-md">
+            FLASH SALE:
+          </span>
+          <span className="text-white font-extrabold drop-shadow-md">
+            50% OFF + FREE DELIVERY & COD IN PAKISTAN!
+          </span>
+        </div>
+
+        <Flame size={16} className="text-yellow-400 animate-bounce hidden sm:block relative z-10" />
       </div>
       <div className="border-b border-white/10 bg-neutral-950/95 backdrop-blur-md shadow-sm">
         {/* Mobile Hamburger */}
@@ -79,9 +92,9 @@ function Navbar() {
 
               <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                 <Image
-                  src={"/White-logo.png"}
-                  height={80}
-                  width={80}
+                  src={"/logo-revo.png"}
+                  height={140}
+                  width={160}
                   priority
                   alt="Logo"
                 />
@@ -167,9 +180,9 @@ function Navbar() {
             <div className="flex-none flex justify-center items-center">
               <Link href={"/"}>
                 <Image
-                  src={"/White-logo.png"}
-                  height={100}
-                  width={100}
+                  src={"/logo-revo.png"}
+                  height={280}
+                  width={220}
                   priority
                   alt="Logo"
                   className="hover:scale-105 transition-transform duration-500"

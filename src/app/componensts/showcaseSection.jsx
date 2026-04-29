@@ -27,7 +27,7 @@ function ShowcaseSection() {
           >
             <h2 className="text-4xl md:text-6xl font-extrabold mb-6 uppercase tracking-wider">
               Why 100,000+ Pakistanis <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">Trust Revodials</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">Trust Revo Dials</span>
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 font-medium max-w-3xl mx-auto">
               We don't just sell watches. We sell confidence. Experience premium quality without the ridiculous luxury markup.

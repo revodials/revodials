@@ -38,7 +38,7 @@ function CategoryBox({ category }) {
             slidesPerView="auto"
             freeMode={true}
             autoplay={{
-              delay: 2500,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             navigation={{
