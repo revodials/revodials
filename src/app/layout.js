@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <head>
         {/* <meta name="facebook-domain-verification" content="7bb615550qvm6ipgecz81nuzc3bb3k" /> */}
-        {/* <FacebookPixel /> */}
+        <FacebookPixel />
       </head>
       <body
         className={`${outfit.variable} antialiased`}
