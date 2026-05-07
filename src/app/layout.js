@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* <meta name="facebook-domain-verification" content="7bb615550qvm6ipgecz81nuzc3bb3k" /> */}
+        <meta name="facebook-domain-verification" content="an08h7f7acg3v9t7m92exl93sbojl9" />
         <FacebookPixel />
       </head>
       <body
