@@ -10,11 +10,26 @@ import { toast } from "sonner";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { ShoppingCart, Heart, MessageCircle } from "lucide-react";
 
-function ProductDetailActions({ product }) {
+function ProductDetailActions({ product, setSelectedImage }) {
     const [quantity, setQuantity] = useState(1);
     const [variants, setVariants] = useState(
         product?.variants?.[0] || null
     );
+
+    const handleVariantClick = (variant, index) => {
+        setVariants(variant);
+        if (product?.images && product.images.length > 0 && setSelectedImage) {
+            let targetImageIndex = index;
+            if (product.images.length > product.variants.length) {
+                targetImageIndex = index + 1;
+            }
+            if (targetImageIndex < product.images.length) {
+                setSelectedImage(product.images[targetImageIndex]);
+            } else {
+                setSelectedImage(product.images[0]);
+            }
+        }
+    };
 
     const { handleCartItems } = useContext(CartItem);
     const router = useRouter();
@@ -60,32 +75,35 @@ function ProductDetailActions({ product }) {
                 </CardContent>
             </Card>
             {product?.variants && product.variants.length > 0 && (
-                <div className="p-3">
-                    <h3 className="font-semibold text-gray-900 mb-4 text-lg">
+                <div className="p-3 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-sm mb-4">
+                    <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
                         Select Variant
                     </h3>
 
-                    <div className="flex items-center flex-wrap gap-3">
-                        {product?.variants.map((variant, index) => (
-                            <div
-                                key={index}
-                                onClick={() => setVariants(variant)}
-                                className={`
-                cursor-pointer
-                px-4 py-1
-                rounded-full
-                text-sm font-medium
-                border
-                transition-all duration-200
-                ${variants === variant
-                                        ? "bg-black text-white border-black shadow-lg scale-105"
-                                        : "bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 hover:shadow"
-                                    }
-              `}
-                            >
-                                {variant}
-                            </div>
-                        ))}
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        {product?.variants.map((variant, index) => {
+                            const isSelected = variants === variant;
+                            return (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    onClick={() => handleVariantClick(variant, index)}
+                                    className={`
+                                        cursor-pointer
+                                        px-3.5 py-1.5 sm:px-4 sm:py-2
+                                        rounded-full
+                                        text-xs sm:text-sm font-medium
+                                        border transition-all duration-200
+                                        ${isSelected
+                                            ? "bg-black text-white border-black shadow-md scale-105"
+                                            : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:border-gray-300"
+                                        }
+                                    `}
+                                >
+                                    {variant}
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
             )}

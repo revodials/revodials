@@ -369,9 +369,9 @@ export default function CheckoutPage() {
       queryClient.invalidateQueries("AdminData");
       queryClient.invalidateQueries({ queryKey: ["orders"] });
       queryClient.invalidateQueries("notify");
+      router.push("/confirmation");
       reset();
       carts.length = 0;
-      router.push("/confirmation");
     },
     onError: (error) => {
       toast.error(`Order failed ${error.message}`);
