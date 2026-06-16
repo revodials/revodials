@@ -8,8 +8,7 @@ import { CheckCheck, Award } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ChevronLeft } from "lucide-react";
 
-function DetailPageCarousel({ product }) {
-    const [image, setImage] = useState("");
+function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
     const router = useRouter();
 
     const discountPercentage = Math.round(
@@ -32,7 +31,7 @@ function DetailPageCarousel({ product }) {
                 <div className="relative group">
                     <div className="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl border border-gray-200">
                         <Image
-                            src={image ? image : product.images[0]}
+                            src={selectedImage ? selectedImage : product.images[0]}
                             alt={product.name}
                             width={600}
                             height={600}
@@ -67,14 +66,14 @@ function DetailPageCarousel({ product }) {
                                     className="flex-1 flex justify-center items-center"
                                 >
                                     <Image
-                                        onClick={() => setImage(img)}
+                                        onClick={() => setSelectedImage(img)}
                                         src={img || "/placeholder.svg"}
                                         priority
                                         alt={`Product Image ${index + 1}`}
                                         height={80}
                                         width={80}
-                                        className={`w-20 h-20 sm:w-32 sm:h-32 max-h-20 sm:max-h-32 object-cover rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105 border-2 ${image === img ||
-                                            (!image && product.images[0] === img)
+                                        className={`w-20 h-20 sm:w-32 sm:h-32 max-h-20 sm:max-h-32 object-cover rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105 border-2 ${selectedImage === img ||
+                                            (!selectedImage && product.images[0] === img)
                                             ? "border-blue-500 shadow-md shadow-blue-300"
                                             : "border-gray-300"
                                             }`}

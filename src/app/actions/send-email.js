@@ -67,11 +67,11 @@ function getVendorTemplate(orderId, OrderData) {
       <td style="padding:10px;border-bottom:1px solid #eee;">
         <strong>${item.productId?.name || 'Product Name'}</strong>
       </td>
-      <td style="padding:10px;border-bottom:1px solid #eee;text-align:center;">
-        ${item.quantity}
-      </td>
       <td style="padding:10px;border-bottom:1px solid #eee;">
         ${item.selectedVariant || 'Default'}
+      </td>
+      <td style="padding:10px;border-bottom:1px solid #eee;text-align:center;">
+        ${item.quantity}
       </td>
     </tr>
   `).join('');

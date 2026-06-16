@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import { FaBox, FaBoxOpen, FaPlane } from "react-icons/fa6";
 import ShareButton from "./shareBtn";
 import Footer from "./footer";
@@ -20,8 +23,15 @@ function ProductDetailClient({ data }) {
   const aftertwodays = new Date(today);
   aftertwodays.setDate(today.getDate() + 4);
 
-
-
+  const [selectedImage, setSelectedImage] = useState(() => {
+    if (product?.variants?.length > 0 && product?.images?.length > 0) {
+      if (product.images.length > product.variants.length) {
+        return product.images[1] || product.images[0];
+      }
+      return product.images[0];
+    }
+    return product?.images?.[0] || "";
+  });
 
   return (
     <>
@@ -32,7 +42,7 @@ function ProductDetailClient({ data }) {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-16">
               {/* Product Images Section */}
-              <DetailPageCarousel product={product} />
+              <DetailPageCarousel product={product} selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
 
               {/* Product Details Section */}
               <div className="space-y-6 mt-6">
@@ -72,7 +82,7 @@ function ProductDetailClient({ data }) {
                 </div>
 
                 {/* ProductDetailActions */}
-                <ProductDetailActions product={product} />
+                <ProductDetailActions product={product} setSelectedImage={setSelectedImage} />
 
                 {/* Product Description */}
                 <Card className="bg-gradient-to-r from-gray-50/50 to-gray-100/50 border-gray-200 shadow-sm">

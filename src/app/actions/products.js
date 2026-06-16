@@ -263,19 +263,12 @@ export const orderCheckout = async (req) => {
     await dbConnect();
     const order = new Order({ ...req });
     await order.save();
+    console.log(order);
     if (!order) {
       throw new Error("Failed to create order");
     }
     const OrderData = await Order.findById(order._id).populate("items.productId");
-    try {
-      const notify = new Notification({
-        name: OrderData?.user?.firstName,
-        city: OrderData?.user?.city,
-      });
-      await notify.save();
-    } catch (err) {
-      console.error("Notification save failed:", err);
-    }
+
     if (order?.user?.email) {
       await sendEmail({
         email: order.user.email,

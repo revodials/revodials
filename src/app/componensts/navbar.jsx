@@ -88,7 +88,12 @@ function Navbar() {
             </div>
           ) : (
             <div className="flex justify-between items-center w-full">
-              <div className="w-6"></div> {/* Spacer to keep logo centered */}
+              <button
+                className="text-white cursor-pointer hover:text-red-500 transition-colors z-10"
+                onClick={() => setBox({ ...box, isOpen: true })}
+              >
+                <FaBarsStaggered size={24} />
+              </button>
 
               <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                 <Image
@@ -109,12 +114,6 @@ function Navbar() {
                   <span className="absolute -top-2 -right-2 bg-red-600 text-white font-black text-[10px] rounded-full w-[18px] h-[18px] flex items-center justify-center border border-neutral-950 shadow-sm shadow-red-600/50">
                     {carts?.length || 0}
                   </span>
-                </button>
-                <button
-                  className="text-white cursor-pointer hover:text-red-500 transition-colors z-10"
-                  onClick={() => setBox({ ...box, isOpen: true })}
-                >
-                  <FaBarsStaggered size={24} />
                 </button>
               </div>
             </div>
