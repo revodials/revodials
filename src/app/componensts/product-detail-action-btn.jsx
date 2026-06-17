@@ -75,7 +75,7 @@ function ProductDetailActions({ product, setSelectedImage }) {
                 </CardContent>
             </Card>
             {product?.variants && product.variants.length > 0 && (
-                <div className="p-3 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-sm mb-4">
+                <div className="p-3 mt-4 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-sm mb-4">
                     <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
                         Select Variant
                     </h3>
