@@ -1,19 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, Suspense, lazy } from "react";
 import { FaBox, FaBoxOpen, FaPlane } from "react-icons/fa6";
-import ShareButton from "./shareBtn";
-import Footer from "./footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Star,
-  Clock,
-  CheckCheck
-} from "lucide-react";
+import { Star, Clock, CheckCheck } from "lucide-react";
 import Navbar from "./navbar";
 import DetailPageCarousel from "./detail-page-carousel";
 import ProductDetailActions from "./product-detail-action-btn";
+import TrustBadges from "./trust-badges";
+const ShareButton = lazy(() => import("./shareBtn"));
+const Footer = lazy(() => import("./footer"));
+const SocialProof = lazy(() => import("./social-proof"));
+const UrgencySection = lazy(() => import("./urgency-section"));
+const CustomerReviews = lazy(() => import("./customer-reviews"));
+
+function SectionSkeleton({ heightClass = "h-32" }) {
+  return (
+    <div className={`w-full ${heightClass} rounded-2xl bg-gray-100 animate-pulse`} />
+  );
+}
 
 function ProductDetailClient({ data }) {
   const product = data;
@@ -22,6 +28,8 @@ function ProductDetailClient({ data }) {
   tomorrow.setDate(today.getDate() + 1);
   const aftertwodays = new Date(today);
   aftertwodays.setDate(today.getDate() + 4);
+
+  const actionsRef = useRef(null);
 
   const [selectedImage, setSelectedImage] = useState(() => {
     if (product?.variants?.length > 0 && product?.images?.length > 0) {
@@ -33,22 +41,26 @@ function ProductDetailClient({ data }) {
     return product?.images?.[0] || "";
   });
 
+  const handleOrderNowClick = () => {
+    actionsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
     <>
       <Navbar />
       <div className="min-h-screen bg-white">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-16">
               {/* Product Images Section */}
               <DetailPageCarousel product={product} selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
 
               {/* Product Details Section */}
-              <div className="space-y-6 mt-6">
+              <div className="space-y-5 mt-4">
                 {/* Product Header */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 mb-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
                     <div className="flex text-yellow-400">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-current" />
@@ -72,22 +84,31 @@ function ProductDetailClient({ data }) {
                         Rs. {Number(product.price).toLocaleString("en-PK")}
                       </span>
                     </div>
-                    <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg backdrop-blur-sm border-0">
-                      <CheckCheck className="w-3 h-3 mr-1" />
-                      Allow to open | First Check then Pay
-                    </Badge>
-
                   </div>
-
                 </div>
 
-                {/* ProductDetailActions */}
-                <ProductDetailActions product={product} setSelectedImage={setSelectedImage} />
+                {/* Trust Badges — directly below price, above the order button */}
+
+                {/* ProductDetailActions — variant selection + order button (untouched logic) */}
+                <div ref={actionsRef}>
+                  <ProductDetailActions product={product} setSelectedImage={setSelectedImage} />
+                </div>
+                <TrustBadges />
+
+                {/* Urgency Section */}
+                <Suspense fallback={<SectionSkeleton heightClass="h-20" />}>
+                  <UrgencySection productId={product?._id} />
+                </Suspense>
+
+                {/* Social Proof */}
+                <Suspense fallback={<SectionSkeleton heightClass="h-28" />}>
+                  <SocialProof />
+                </Suspense>
 
                 {/* Product Description */}
                 <Card className="bg-gradient-to-r from-gray-50/50 to-gray-100/50 border-gray-200 shadow-sm">
                   <CardContent className="p-4 sm:p-8">
-                    <h3 className="font-bold text-gray-800 mb-6 text-xl">
+                    <h3 className="font-bold text-gray-800 mb-4 text-xl">
                       Product Description
                     </h3>
                     <div
@@ -96,60 +117,32 @@ function ProductDetailClient({ data }) {
                     />
                   </CardContent>
                 </Card>
-                {/* Delivery Timeline */}
-                <Card className="bg-gradient-to-r from-gray-50/50 to-gray-100/50 border-gray-200 shadow-sm">
-                  <CardContent className="p-8">
-                    <h3 className="font-bold text-gray-800 mb-6 flex items-center text-xl">
-                      <Clock className="w-6 h-6 mr-3 text-blue-500" />
-                      Estimated Delivery Timeline
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                      <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl border border-blue-200">
-                        <FaBox
-                          className="mx-auto mb-4 text-blue-600"
-                          size={32}
-                        />
-                        <p className="text-lg font-semibold text-gray-800 mb-2">
-                          Ordered
-                        </p>
-                        <p className="text-sm text-blue-600">
-                          {today.toDateString()}
-                        </p>
+
+                {/* Customer Reviews */}
+                <div>
+                  <h3 className="font-bold text-gray-800 mb-4 text-xl">
+                    What Our Customers Say
+                  </h3>
+                  <Suspense
+                    fallback={
+                      <div className="space-y-4">
+                        <SectionSkeleton heightClass="h-28" />
+                        <SectionSkeleton heightClass="h-28" />
                       </div>
-                      <div className="text-center p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl border border-yellow-200">
-                        <FaPlane
-                          className="mx-auto mb-4 text-yellow-600"
-                          size={32}
-                        />
-                        <p className="text-lg font-semibold text-gray-800 mb-2">
-                          Shipped
-                        </p>
-                        <p className="text-sm text-yellow-600">
-                          {tomorrow.toDateString()}
-                        </p>
-                      </div>
-                      <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl border border-green-200">
-                        <FaBoxOpen
-                          className="mx-auto mb-4 text-green-600"
-                          size={32}
-                        />
-                        <p className="text-lg font-semibold text-gray-800 mb-2">
-                          Delivered
-                        </p>
-                        <p className="text-sm text-green-600">
-                          {aftertwodays.toDateString()}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    }
+                  >
+                    <CustomerReviews />
+                  </Suspense>
+                </div>
 
                 {/* Share Button */}
-                <div className="flex justify-center pt-4">
+                <div className="flex justify-center pt-2">
                   <div className="p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl border border-gray-200 shadow-sm">
-                    <ShareButton
-                      url={`${process.env.NEXT_PUBLIC_LOCAL_URI}productdetail?id=${product._id}`}
-                    />
+                    <Suspense fallback={<div className="w-32 h-6" />}>
+                      <ShareButton
+                        url={`${process.env.NEXT_PUBLIC_LOCAL_URI}productdetail?id=${product._id}`}
+                      />
+                    </Suspense>
                   </div>
                 </div>
               </div>
@@ -157,7 +150,13 @@ function ProductDetailClient({ data }) {
           </div>
         </div>
       </div>
-      <Footer />
+
+
+
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </>
   );
 }
