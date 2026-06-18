@@ -444,14 +444,14 @@ export default function CheckoutPage() {
                         className="w-14 h-14 object-cover mr-4 rounded-full"
                       />
                       {item.quantity && (
-                        <span className="absolute top-1 right-2 bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+                        <span className="absolute top-1 right-[-4] bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
                           {item.quantity}
                         </span>
                       )}
                     </div>
                     <div>
-                      <p className="font-medium">{item.name}</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="font-medium text-xs">{item.name}</p>
+                      <p className="text-xs text-gray-600">
                         Rs.
                         {Number(item.Sellprice * item.quantity).toLocaleString(
                           "en-PK"
@@ -460,7 +460,7 @@ export default function CheckoutPage() {
                       </p>
                       {item.selectedVariant && (
                         <div
-                          className={`h-fit py-1 px-3 cursor-pointer 
+                          className={`h-fit py-1 px-3 mt-1 cursor-pointer 
                           bg-black text-white rounded-full w-fit border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200`}
                         >
                           <h4 className="font-semibold text-xs">
@@ -504,7 +504,7 @@ export default function CheckoutPage() {
               </div>
               <div className="lg:w-1/2 w-full space-y-1">
                 <label className="text-sm font-medium mb-1 block">
-                  Phone number
+                  Whatsapp number
                 </label>
                 <Input
                   className="w-full"
@@ -640,7 +640,7 @@ export default function CheckoutPage() {
               <Button
                 disabled={mutation.isPending}
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white text-base rounded py-3"
+                className="w-full bg-blue-600 my-4 hover:bg-blue-700 text-white text-base rounded py-3"
               >
                 {mutation.isPending ? "Placing order..." : "Complete order"}
               </Button>
