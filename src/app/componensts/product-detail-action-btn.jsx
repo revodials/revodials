@@ -43,44 +43,14 @@ function ProductDetailActions({ product, setSelectedImage }) {
     };
 
     return (
-        <div>
-            <Card className="bg-gradient-to-r from-gray-50 to-gray-100 border-gray-200 shadow-sm">
-                <CardContent className="p-2">
-                    <div className="flex items-center justify-between">
-                        <span className="font-semibold text-gray-800 text-lg">
-                            Quantity:
-                        </span>
-                        <div className="flex items-center sm:space-x-4">
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                className="h-8 w-8 rounded-full bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
-                                onClick={() => setQuantity((c) => Math.max(1, c - 1))}
-                            >
-                                <FaMinus className="h-4 w-4" />
-                            </Button>
-                            <span className="text-2xl font-bold text-gray-800 min-w-[3rem] text-center">
-                                {quantity}
-                            </span>
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                className="h-8 w-8 rounded-full bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
-                                onClick={() => setQuantity((c) => c + 1)}
-                            >
-                                <FaPlus className="h-4 w-4" />
-                            </Button>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
+        <div className="product-action-section flex flex-col w-full">
             {product?.variants && product.variants.length > 0 && (
-                <div className="p-3 mt-4 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-sm mb-4">
+                <div className="product-variant-selector p-3 mt-4 sm:p-4 bg-white rounded-xl border border-gray-100 shadow-sm mb-4">
                     <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
-                        Select Variant
+                        Select Color
                     </h3>
 
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <div className="flex flex-wrap items-center gap-2.5">
                         {product?.variants.map((variant, index) => {
                             const isSelected = variants === variant;
                             return (
@@ -90,13 +60,13 @@ function ProductDetailActions({ product, setSelectedImage }) {
                                     onClick={() => handleVariantClick(variant, index)}
                                     className={`
                                         cursor-pointer
-                                        px-3.5 py-1.5 sm:px-4 sm:py-2
-                                        rounded-full
-                                        text-xs sm:text-sm font-medium
-                                        border transition-all duration-200
+                                        px-4 py-2 sm:px-5 sm:py-2.5
+                                        rounded-lg
+                                        text-sm sm:text-base font-medium
+                                        transition-all duration-200
                                         ${isSelected
-                                            ? "bg-black text-white border-black shadow-md scale-105"
-                                            : "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 hover:border-gray-300"
+                                            ? "bg-gray-900 text-white shadow-md border-transparent"
+                                            : "bg-white text-gray-700 border border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                                         }
                                     `}
                                 >
@@ -109,46 +79,73 @@ function ProductDetailActions({ product, setSelectedImage }) {
             )}
 
             {/* Action Buttons */}
-            <div className="space-y-4 mt-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-3 mt-4 w-full">
+                {/* Row 1: Quantity + Buy Now */}
+                <div className="flex flex-row items-center gap-3 w-full">
+                    {/* Quantity Selector */}
+                    <div className="flex items-center justify-between bg-white border border-gray-200 rounded-xl h-[48px] w-[110px] sm:w-[120px] shrink-0 shadow-sm overflow-hidden">
+                        <button
+                            type="button"
+                            className="flex-1 flex items-center justify-center h-full text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition-colors cursor-pointer"
+                            onClick={() => setQuantity((c) => Math.max(1, c - 1))}
+                        >
+                            <FaMinus className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="font-semibold text-gray-800 text-base w-8 text-center select-none">
+                            {quantity}
+                        </span>
+                        <button
+                            type="button"
+                            className="flex-1 flex items-center justify-center h-full text-gray-600 hover:bg-gray-50 active:bg-gray-100 transition-colors cursor-pointer"
+                            onClick={() => setQuantity((c) => c + 1)}
+                        >
+                            <FaPlus className="w-3.5 h-3.5" />
+                        </button>
+                    </div>
+
+                    {/* Buy Now Button */}
                     <Button
                         size="lg"
-                        className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 rounded-xl shadow-lg shadow-blue-600/25 transition-all duration-300 hover:shadow-blue-600/40 hover:scale-105"
+                        className="flex-1 h-[48px] bg-gray-900 hover:bg-black text-white font-semibold rounded-xl shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-base px-2 sm:px-4"
                         onClick={() => {
                             handleCartItems(product, quantity, variants);
                             router.push("/checkout");
                         }}
                     >
-                        <ShoppingCart className="w-5 h-5 mr-2" />
-                        Buy Now
-                    </Button>
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        className="border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-semibold py-4 rounded-xl bg-white transition-all duration-300 hover:scale-105"
-                        onClick={() => {
-                            handleCartItems(product, quantity, variants);
-                            toast.success("Item added to cart", {
-                                description: "Item added to cart successfully",
-                                duration: 2000,
-                                action: {
-                                    label: "Go to Cart",
-                                    onClick: () => router.push("/cart"),
-                                },
-                            });
-                        }}
-                    >
-                        <Heart className="w-5 h-5 mr-2" />
-                        Add to Cart
+                        <ShoppingCart className="w-5 h-5 mr-2 shrink-0" />
+                        <span className="whitespace-nowrap">Buy Now</span>
                     </Button>
                 </div>
+
+                {/* Row 2: WhatsApp */}
                 <Button
                     size="lg"
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-4 rounded-xl shadow-lg shadow-green-600/25 transition-all duration-300 hover:shadow-green-600/40 hover:scale-105"
+                    className="w-full h-[48px] bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold rounded-xl shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-base px-2 sm:px-4"
                     onClick={() => sendToWhatsApp(product.name)}
                 >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    Order on WhatsApp
+                    <MessageCircle className="w-5 h-5 mr-2 shrink-0" />
+                    <span className="whitespace-nowrap">Order on WhatsApp</span>
+                </Button>
+
+                {/* Row 3: Add to Cart */}
+                <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full h-[48px] bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-gray-900 font-medium rounded-xl shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] text-base px-2 sm:px-4"
+                    onClick={() => {
+                        handleCartItems(product, quantity, variants);
+                        toast.success("Item added to cart", {
+                            description: "Item added to cart successfully",
+                            duration: 2000,
+                            action: {
+                                label: "Go to Cart",
+                                onClick: () => router.push("/cart"),
+                            },
+                        });
+                    }}
+                >
+                    <Heart className="w-5 h-5 mr-2 shrink-0" />
+                    <span className="whitespace-nowrap">Add to Cart</span>
                 </Button>
             </div>
         </div>

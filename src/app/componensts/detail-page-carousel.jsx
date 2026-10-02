@@ -58,12 +58,12 @@ function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
 
                 {/* Thumbnail Carousel */}
                 {product?.images.length > 1 && (
-                    <Carousel className="w-fullmt-6 h-32 sm:h-48 flex items-center justify-center">
-                        <CarouselContent className="flex w-full items-center justify-center">
+                    <Carousel className="w-full mt-6 h-30 sm:h-48 flex items-center justify-center">
+                        <CarouselContent className="flex items-center">
                             {product?.images.map((img, index) => (
                                 <CarouselItem
                                     key={index}
-                                    className="flex-1 flex justify-center items-center"
+                                    className="basis-1/3 sm:basis-1/4 flex justify-center items-center"
                                 >
                                     <Image
                                         onClick={() => setSelectedImage(img)}
