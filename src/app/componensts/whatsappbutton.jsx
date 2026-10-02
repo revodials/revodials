@@ -2,18 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { toast } from "sonner";
-function Whatsappbutton() {
+function Whatsappbutton({ props }) {
   const [count, setCount] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       try {
         setCount(true);
-        toast("Need Help? We're Here for You!", {
-          description: "Hey there! How can I assist you today? 😊",
-          action: {
-            label: "Undo",
-          },
-        });
       } catch (error) {
         console.log("TCL: timer -> error", error);
       }
@@ -25,7 +19,7 @@ function Whatsappbutton() {
 
   const sendToWhatsApp = () => {
     const phoneNumber = "923359219333";
-    const message = encodeURIComponent("Hello, I want to take information about your products.");
+    const message = encodeURIComponent(props);
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
 
     if (window.innerWidth < 768) {

@@ -37,10 +37,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { updateOrderStatus } from "../actions/products";
 import { Skeleton } from "@/components/ui/skeleton";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import { OrderReceiptPDF } from "../componensts/OrderReceipt";
-import { Printer } from "lucide-react";
-import { Loader2 } from "lucide-react";
 import { Package } from "lucide-react";
 import { Badge } from "lucide-react";
 import { Phone } from "lucide-react";
@@ -50,7 +46,6 @@ import { User } from "lucide-react";
 import { AlertCircle } from "lucide-react";
 import { CheckCircle } from "lucide-react";
 import { Loader2Icon } from "lucide-react";
-import { Clock } from "lucide-react";
 import Image from "next/image";
 import { Clock1 } from "lucide-react";
 
@@ -119,16 +114,6 @@ export function DataTable({ columns, data, isLoading }) {
         >
           <Eye className="w-5 h-5" />
         </Button>
-        <PDFDownloadLink
-          document={<OrderReceiptPDF order={row.original} />}
-          fileName={`Order-${row.original?.orderId}.pdf`}
-        >
-          {({ loading }) => (
-            <Button variant="outline" className="flex items-center gap-2">
-              <Printer className="w-4 h-4 text-black" />
-            </Button>
-          )}
-        </PDFDownloadLink>
         <Menubar>
           <MenubarMenu>
             <MenubarTrigger className="text-black hover:underline">
@@ -187,9 +172,9 @@ export function DataTable({ columns, data, isLoading }) {
                   {header.isPlaceholder
                     ? null
                     : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
                 </TableHead>
               ))}
             </TableRow>
@@ -267,7 +252,7 @@ export function DataTable({ columns, data, isLoading }) {
                             <p className="text-sm text-gray-500">Name</p>
                             <p className="font-medium text-gray-900">
                               {selectedOrder.user?.firstName &&
-                              selectedOrder.user?.lastName
+                                selectedOrder.user?.lastName
                                 ? `${selectedOrder.user.firstName} ${selectedOrder.user.lastName}`
                                 : selectedOrder.user?.Name || "No name"}
                             </p>
@@ -287,12 +272,9 @@ export function DataTable({ columns, data, isLoading }) {
                         <div className="flex items-start gap-2">
                           <MapPin className="w-4 h-4 text-gray-500 mt-0.5" />
                           <div>
-                            <p className="text-sm text-gray-500">Address</p>
+                            <p className="text-sm text-gray-500">Address & City</p>
                             <p className="font-medium text-gray-900">
-                              {selectedOrder.user?.address || "No address"}
-                            </p>
-                            <p className="text-sm text-gray-600">
-                              {selectedOrder.user?.country || "No country"}
+                              {selectedOrder.user?.address || "No address"}, {selectedOrder.user?.city || "No city"}
                             </p>
                           </div>
                         </div>

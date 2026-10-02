@@ -105,8 +105,8 @@ function getVendorTemplate(orderId, OrderData) {
         <div style="background:#fafafa;padding:14px;border-radius:10px;font-size:14px;">
           <p><strong>Name:</strong> ${user.Name}</p>
           <p><strong>Phone:</strong> ${user.contact}</p>
-          <p><strong>Email:</strong> ${user.email}</p>
-          <p><strong>Address:</strong> ${user.address}, ${user.city}</p>
+          <p><strong>City:</strong> ${user.city}</p>
+          <p><strong>Address:</strong> ${user.address}</p>
         </div>
 
         <!-- Products -->
@@ -117,8 +117,8 @@ function getVendorTemplate(orderId, OrderData) {
               <tr>
                 <th style="padding:10px;text-align:left;">#</th>
                 <th style="padding:10px;text-align:left;">Product</th>
-                <th style="padding:10px;text-align:center;">Qty</th>
-                <th style="padding:10px;text-align:left;">Variant</th>
+                <th style="padding:10px;text-align:center;">Variant</th>
+                <th style="padding:10px;text-align:left;">Qty</th>
               </tr>
             </thead>
             <tbody>
