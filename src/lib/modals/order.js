@@ -20,7 +20,6 @@ const OrderSchema = new Schema(
       Name: String,
       address: String,
       city: String,
-      email: { type: String },
     },
     status: { type: String, enum: ['pending', 'processing', 'completed', 'cancelled', 'shipped', "deleted"], default: 'pending' },
   },

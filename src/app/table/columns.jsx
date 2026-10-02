@@ -38,9 +38,9 @@ export const columns = [
     header: "Name",
   },
   {
-    accessorFn: (row) => row.user?.email || "No email",
-    id: "email",
-    header: "Email",
+    accessorFn: (row) => row.user?.contact || row.user?.contact,
+    id: "contact",
+    header: "Phone",
   },
   {
     accessorKey: "status",
@@ -52,12 +52,12 @@ export const columns = [
         status === "pending"
           ? "bg-yellow-200 text-yellow-800"
           : status === "processing"
-          ? "bg-blue-200 text-blue-800"
-          : status === "completed"
-          ? "bg-green-200 text-green-800"
-          : status === "cancelled"
-          ? "bg-red-200 text-red-800"
-          : "bg-green-200 text-green-800";
+            ? "bg-blue-200 text-blue-800"
+            : status === "completed"
+              ? "bg-green-200 text-green-800"
+              : status === "cancelled"
+                ? "bg-red-200 text-red-800"
+                : "bg-green-200 text-green-800";
 
       return (
         <Badge className={`rounded-full text-sm font-medium  ${statusClass}`}>
