@@ -58,12 +58,12 @@ function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
 
                 {/* Thumbnail Carousel */}
                 {product?.images.length > 1 && (
-                    <Carousel className="w-full mt-6 h-30 sm:h-48 flex items-center justify-center">
+                    <Carousel className="w-full mt-3 h-20 sm:h-24 flex items-center justify-center">
                         <CarouselContent className="flex items-center">
                             {product?.images.map((img, index) => (
                                 <CarouselItem
                                     key={index}
-                                    className="basis-1/3 sm:basis-1/4 flex justify-center items-center"
+                                    className="basis-1/4 sm:basis-1/5 flex justify-center items-center"
                                 >
                                     <Image
                                         onClick={() => setSelectedImage(img)}
@@ -72,7 +72,7 @@ function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
                                         alt={`Product Image ${index + 1}`}
                                         height={80}
                                         width={80}
-                                        className={`w-20 h-20 sm:w-32 sm:h-32 max-h-20 sm:max-h-32 object-cover rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105 border-2 ${selectedImage === img ||
+                                        className={`w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105 border-2 ${selectedImage === img ||
                                             (!selectedImage && product.images[0] === img)
                                             ? "border-blue-500 shadow-md shadow-blue-300"
                                             : "border-gray-300"
@@ -81,8 +81,8 @@ function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious className="left-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50" />
-                        <CarouselNext className="right-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50" />
+                        <CarouselPrevious className="left-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50 w-8 h-8" />
+                        <CarouselNext className="right-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50 w-8 h-8" />
                     </Carousel>
                 )}
             </div>
