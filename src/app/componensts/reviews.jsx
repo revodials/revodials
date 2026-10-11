@@ -21,125 +21,125 @@ import "swiper/css/effect-cards";
 import { cn } from "@/lib/utils";
 
 const Skiper50 = () => {
-const images = [
-  {
-    src: "/reviews/r1.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r2.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r3.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r4.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r5.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r6.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r7.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r8.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r9.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r10.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r11.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r12.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r13.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r14.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r15.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r16.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r17.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r18.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r19.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r20.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r21.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r22.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
-  {
-    src: "/reviews/r23.jpeg",
-    alt: "Illustrations by my fav AarzooAly",
-    code: "# 23",
-  },
+  const images = [
+    {
+      src: "/reviews/r1.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r2.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r3.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r4.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r5.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r6.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r7.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r8.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r9.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r10.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r11.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r12.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r13.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r14.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r15.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r16.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r17.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r18.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r19.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r20.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r21.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r22.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
+    {
+      src: "/reviews/r23.jpeg",
+      alt: "Illustrations by my fav AarzooAly",
+      code: "# 23",
+    },
 
- 
-];
+
+  ];
 
   return (
     <div className="flex h-full w-full items-center justify-center overflow-hidden bg-[#f5f4f3]">
@@ -188,7 +188,7 @@ const Carousel_003 = ({
       className={cn("relative lg:w-full xl:w-[91%] w-[97%] px-2 md:px-20 pb-2 lg:w-max-[1480px] py-20", className)}
     >
       <style>{css}</style>
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
+      <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
         Our Reviews
       </h2>
 
@@ -203,9 +203,9 @@ const Carousel_003 = ({
           autoplay={
             autoplay
               ? {
-                  delay: 1500,
-                  disableOnInteraction: true,
-                }
+                delay: 1500,
+                disableOnInteraction: true,
+              }
               : false
           }
           effect="coverflow"
@@ -223,16 +223,16 @@ const Carousel_003 = ({
           pagination={
             showPagination
               ? {
-                  clickable: true,
-                }
+                clickable: true,
+              }
               : false
           }
           navigation={
             showNavigation
               ? {
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                }
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              }
               : false
           }
           className="Carousal_003"

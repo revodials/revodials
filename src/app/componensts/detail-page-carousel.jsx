@@ -63,7 +63,7 @@ function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
                             {product?.images.map((img, index) => (
                                 <CarouselItem
                                     key={index}
-                                    className="basis-1/4 sm:basis-1/5 flex justify-center items-center"
+                                    className="basis-1/2 flex justify-center items-center"
                                 >
                                     <Image
                                         onClick={() => setSelectedImage(img)}
