@@ -57,32 +57,47 @@ function DetailPageCarousel({ product, selectedImage, setSelectedImage }) {
                 </div>
 
                 {/* Thumbnail Carousel */}
-                {product?.images.length > 1 && (
-                    <Carousel className="w-full mt-3 h-20 sm:h-24 flex items-center justify-center">
-                        <CarouselContent className="flex items-center">
-                            {product?.images.map((img, index) => (
-                                <CarouselItem
-                                    key={index}
-                                    className="basis-1/2 flex justify-center items-center"
-                                >
-                                    <Image
-                                        onClick={() => setSelectedImage(img)}
-                                        src={img || "/placeholder.svg"}
-                                        priority
-                                        alt={`Product Image ${index + 1}`}
-                                        height={80}
-                                        width={80}
-                                        className={`w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer transition-transform duration-200 hover:scale-105 border-2 ${selectedImage === img ||
-                                            (!selectedImage && product.images[0] === img)
-                                            ? "border-blue-500 shadow-md shadow-blue-300"
-                                            : "border-gray-300"
-                                            }`}
-                                    />
-                                </CarouselItem>
-                            ))}
+                {product?.images?.length > 1 && (
+                    <Carousel
+                        opts={{ align: "start", containScroll: "trimSnaps" }}
+                        className={`w-full mt-3 h-20 sm:h-24 flex items-center justify-center ${product.images.length > 4 ? "px-8 sm:px-10" : ""
+                            }`}
+                    >
+                        <CarouselContent
+                            className={`flex items-center -ml-2 sm:-ml-3 ${product.images.length <= 4 ? "justify-center" : ""
+                                }`}
+                        >
+                            {product.images.map((img, index) => {
+                                const isSelected =
+                                    selectedImage === img ||
+                                    (!selectedImage && product.images[0] === img);
+                                return (
+                                    <CarouselItem
+                                        key={index}
+                                        className="pl-2 sm:pl-3 basis-1/4 sm:basis-1/5 md:basis-1/6 flex justify-center items-center"
+                                    >
+                                        <Image
+                                            onClick={() => setSelectedImage(img)}
+                                            src={img || "/placeholder.svg"}
+                                            priority
+                                            alt={`Product Image ${index + 1}`}
+                                            height={80}
+                                            width={80}
+                                            className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-cover rounded-lg cursor-pointer transition-all duration-200 hover:scale-105 border-2 ${isSelected
+                                                    ? "border-blue-500 shadow-md shadow-blue-300 ring-2 ring-blue-400/20"
+                                                    : "border-gray-300 hover:border-gray-400"
+                                                }`}
+                                        />
+                                    </CarouselItem>
+                                );
+                            })}
                         </CarouselContent>
-                        <CarouselPrevious className="left-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50 w-8 h-8" />
-                        <CarouselNext className="right-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50 w-8 h-8" />
+                        {product.images.length > 4 && (
+                            <>
+                                <CarouselPrevious className="left-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50 w-8 h-8 shadow-sm" />
+                                <CarouselNext className="right-0 bg-white/90 border-gray-300 text-gray-700 hover:bg-gray-50 w-8 h-8 shadow-sm" />
+                            </>
+                        )}
                     </Carousel>
                 )}
             </div>
